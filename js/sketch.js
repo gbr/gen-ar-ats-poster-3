@@ -5,7 +5,7 @@ let frameCounter = 0; // Initialize the frame counter
 
 function preload() {
   sound = loadSound(
-    "https://accd-ats-sp23.s3.us-west-1.amazonaws.com/stockhausen-1-cut-1.mp3"
+    "https://accd-ats-sp23.s3.us-west-1.amazonaws.com/Etude+op25+n01+Harp+Etude.mp3"
   );
 }
 
