@@ -59,7 +59,7 @@ function draw() {
       let maxSpheres = 30 * 2; // Max number of spheres
       let maxSize = 60 * 2; // Max size of the largest sphere
       let spacing = 90 * 2; // Space between each sphere
-      let radius = 200; // Adjust as needed for the radius of the swirl
+      let radius = 400; // Adjust as needed for the radius of the swirl
 
       for (var i = 0; i < maxSpheres; i++) {
         offscreen.push(); // Save the current drawing state
