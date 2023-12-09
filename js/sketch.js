@@ -59,7 +59,11 @@ function draw() {
       let maxSpheres = 30 * 2; // Max number of spheres
       let maxSize = 60 * 2; // Max size of the largest sphere
       let spacing = 90 * 2; // Space between each sphere
-      let radius = 400; // Adjust as needed for the radius of the swirl
+      let radius = 200; // Adjust as needed for the radius of the swirl
+      rectMode(CENTER);
+      offscreen.push();
+      angle++;
+      offscreen.pop();
 
       for (var i = 0; i < maxSpheres; i++) {
         offscreen.push(); // Save the current drawing state
@@ -71,7 +75,8 @@ function draw() {
         let y = radius * sin(angleOffset); // Swirling on y-axis
 
         offscreen.translate(x, y); // Adjust position based on iteration
-        offscreen.rotate(angleOffset); // Rotate by an angle that changes with each iteration
+        offscreen.rotate(radius); // Rotate by an angle that changes with each iteration
+        rectMode(CENTER);
         offscreen.stroke(255); // Change the stroke color for each sphere
         offscreen.sphere(size); // Draw the sphere
         offscreen.pop(); // Restore the original drawing stated
