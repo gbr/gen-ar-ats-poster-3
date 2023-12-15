@@ -25,29 +25,13 @@
     AFRAME.registerComponent('canvas-updater', {
       dependencies: ['geometry', 'material'],
 
-      init: function () {
-        this.el.addEventListener('loaded', () => {
-          var material = this.el.getObject3D('mesh').material;
-          if (material.map) {
-            material.map.dispose();
-          }
-          material.map = new THREE.Texture();
-        });
-      },
-
       tick: function () {
-        var material = this.el.getObject3D('mesh').material;
+        var material, el = this.el;
+        material = el.getObject3D('mesh').material;
         if (!material.map) { return; }
-
-        var image = new Image();
-        image.src = getOffscreenImage();
-        image.onload = () => {
-          material.map.image = image;
-          material.map.needsUpdate = true;
-        };
+        material.map.needsUpdate = true;
       }
     });
-
   </script>
   <canvas id="canvas-ar" style="display:none;"></canvas>
   <a-scene
@@ -64,7 +48,7 @@
     </a-entity>
   </a-scene>
 
-  <!-- <button style="width: 100vw; height: 100vh" id="playButton"></button> -->
+  <button style="width: 100vw; height: 100vh" id="playButton"></button>
 </body>
 
 </html>
